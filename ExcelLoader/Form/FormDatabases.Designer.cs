@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDatabases));
             this.databasesListView = new System.Windows.Forms.ListView();
             this.databaseTypeBox = new System.Windows.Forms.ComboBox();
             this.databaseTypeLabel = new System.Windows.Forms.Label();
@@ -216,6 +217,7 @@
             this.Controls.Add(this.databasesNewButton);
             this.Controls.Add(this.databaseDetailsBox);
             this.Controls.Add(this.databasesListView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormDatabases";
             this.Text = "Settings - Databases";
             this.Load += new System.EventHandler(this.FormDatabases_Load);
