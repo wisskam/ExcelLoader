@@ -27,11 +27,17 @@ namespace ExcelLoader
         public static void Load()
         {
             string json;
-            using (var sr = new StreamReader(Path.Combine(ListFilePath, "Connections.json")))
-            {
-                json = sr.ReadToEnd();
+            if(File.Exists(Path.Combine(ListFilePath, "Connections.json"))){
+                using (var sr = new StreamReader(Path.Combine(ListFilePath, "Connections.json")))
+                {
+                    json = sr.ReadToEnd();
+                }
+                Connections = JsonConvert.DeserializeObject<List<Connection>>(json);
             }
-            Connections = JsonConvert.DeserializeObject<List<Connection>>(json);
+            else
+            {
+                Save();
+            }
         } 
         public static void Save()
         {
